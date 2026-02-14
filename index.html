@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tomo Reynolds - Jazz pianist based in Toronto. Available for jazz engagements, private events, and corporate functions.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tomo Reynolds - Jazz Pianist">
+  <meta property="og:description" content="Jazz pianist based in Toronto. Available for engagements, private events, and corporate functions.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://tomoreynolds.ca/">
+  <meta property="og:image" content="https://tomoreynolds.ca/tomo.jpg">
+
+  <title>Tomo Reynolds - Jazz Pianist</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tomo Reynolds",
+    "url": "https://tomoreynolds.ca",
+    "jobTitle": "Jazz Pianist",
+    "knowsAbout": ["Jazz", "Piano", "Music Performance"],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Humber Polytechnic"
+    },
+    "sameAs": [
+      "https://ca.linkedin.com/in/tomo-reynolds-07992918a",
+      "https://www.youtube.com/@towmoe",
+      "https://musescore.com/user/25260836",
+      "https://ca.pinterest.com/tomoreyn/",
+      "https://www.reddit.com/user/tomoreyn/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero-photo" src="tomo.jpg" alt="Tomo Reynolds playing piano">
+    <h1>Tomo Reynolds</h1>
+    <p class="tagline">Jazz pianist · Toronto</p>
+    <a class="cta" href="#contact">Book me</a>
+  </section>
+
+  <hr>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <h2>About</h2>
+    <p>Tomo Reynolds is a jazz pianist based in Toronto, currently in his third year of the Bachelor of Music program at <a href="https://mediaarts.humber.ca/programs/music-bachelor-of.html" target="_blank" rel="noopener noreferrer">Humber Polytechnic</a>. He has performed at venues including the <a href="https://www.therex.ca/" target="_blank" rel="noopener noreferrer">Rex Hotel Jazz & Blues Bar</a>.</p>
+    <p>Available for jazz engagements, private events, and corporate functions, both as a solo pianist and in ensemble settings.</p>
+  </section>
+
+  <hr>
+
+  <!-- Media -->
+  <section class="media" id="media">
+    <h2>Media</h2>
+    <div class="video-embed">
+      <iframe
+        src="https://www.youtube.com/embed/MkrA7ZL8R4E"
+        title="Tomo Reynolds performing at the Rex"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <ul class="media-links">
+      <li><a href="https://www.youtube.com/@towmoe" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      <li><a href="https://musescore.com/user/25260836" target="_blank" rel="noopener noreferrer">MuseScore</a></li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <form class="contact-form" action="https://formspree.io/f/FORM_ID" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="event-type">Event type</label>
+      <select id="event-type" name="event-type">
+        <option value="">Select...</option>
+        <option value="jazz-venue">Jazz venue</option>
+        <option value="private-event">Private event</option>
+        <option value="corporate">Corporate function</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="date">Event date</label>
+      <input type="date" id="date" name="date">
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+    <p class="contact-fallback">Or email directly: <a href="mailto:tomo@tomoreynolds.ca">tomo@tomoreynolds.ca</a></p>
+  </section>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <ul class="social-links">
+      <li><a href="https://ca.linkedin.com/in/tomo-reynolds-07992918a" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://www.youtube.com/@towmoe" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+      <li><a href="https://musescore.com/user/25260836" target="_blank" rel="noopener noreferrer">MuseScore</a></li>
+      <li><a href="https://ca.pinterest.com/tomoreyn/" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+      <li><a href="https://www.reddit.com/user/tomoreyn/" target="_blank" rel="noopener noreferrer">Reddit</a></li>
+    </ul>
+    <p>&copy; 2025 Tomo Reynolds</p>
+  </footer>
+
+</body>
+</html>
