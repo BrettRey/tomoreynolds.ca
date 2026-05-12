@@ -3,29 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Website</title>
+  <title>Tomo Reynolds</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- The content container that sits on top of the background -->
-  <main class="content-layer">
-    <nav class="links-grid">
-      
-      <a href="about.html" class="link-item">
-        <img src="about-btn.jpg" alt="About Me">
-      </a>
+  <div class="site-container">
+    <!-- The physical image establishes the scrolling canvas -->
+    <img src="Background.jpg" alt="Background Canvas" class="master-bg">
 
-      <a href="contact.html" class="link-item">
-        <img src="contact-btn.jpg" alt="Contact">
-      </a>
+    <!-- The content grid sits directly over the top of the canvas -->
+    <main class="interaction-overlay">
+      <nav class="links-layout">
+        
+        <a href="about.html" class="link-element">
+          <img src="about-btn.jpg" alt="About Me">
+        </a>
 
-      <a href="lessons.html" class="link-item">
-        <img src="lessons-btn.jpg" alt="Private Lessons">
-      </a>
+        <a href="contact.html" class="link-element">
+          <img src="contact-btn.jpg" alt="Contact">
+        </a>
 
-    </nav>
-  </main>
+        <a href="lessons.html" class="link-element">
+          <img src="lessons-btn.jpg" alt="Private Lessons">
+        </a>
+
+      </nav>
+    </main>
+  </div>
 
 </body>
 </html>
