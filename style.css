@@ -1,25 +1,78 @@
-/* 1. Reset browser defaults and kill horizontal scrolling */
+/* ==========================================
+   1. GLOBAL & BACKGROUND SETTINGS (Desktop First)
+   ========================================== */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
-  overflow-x: hidden; /* Blocks unwanted side-to-side scrolling completely */
-  background-color: #000000; /* Dark fallback while image loads */
+  min-height: 100vh; /* Forces page to be at least full screen height */
+  overflow-x: hidden;
 }
 
-/* 2. Container holding the image */
-.page-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
+body {
+  /* Sets your image as the canvas */
+  background-image: url('Background.jpg');
+  background-size: cover;          /* Crops edges to perfectly fill the screen */
+  background-position: center top; /* Centers the image dynamically */
+  background-repeat: no-repeat;
+  background-attachment: scroll;   /* Allows natural scrolling */
 }
 
-/* 3. The background image settings */
-.bg-image {
-  width: 100%;        /* Locks image width strictly to browser edge */
-  max-width: 100%;    /* Double-ensures it never overflows the screen */
-  height: auto;       /* Keeps the picture's proportions perfect */
-  display: block;     /* Eliminates the weird default gap at the bottom */
-  pointer-events: none; /* Prevents users from accidentally dragging the image */
+/* Container keeping your elements centered on screen */
+.content-layer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 40px 20px; /* Prevents buttons from hitting screen edges */
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   2. DESKTOP LINK GRID (2x2 Layout)
+   ========================================== */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates a 2-column grid */
+  gap: 30px; /* Space between your image buttons */
+  max-width: 600px; /* Keeps the grid tightly grouped */
+}
+
+.link-item img {
+  width: 100%;       /* Makes buttons scale with the grid */
+  max-width: 250px;  /* Limits maximum size on large monitors */
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.link-item img:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   3. MOBILE RESPONSIVE OVERRIDES (Phones)
+   ========================================== */
+@media (max-width: 768px) {
+  body {
+    /* Increases the scrollable height on mobile so you can scroll 
+       the full height of the cropped image */
+    min-height: 120vh; 
+  }
+
+  .content-layer {
+    align-items: flex-start; /* Aligns content toward top so it scrolls naturally */
+    padding-top: 60px;
+  }
+
+  /* Changes the 2x2 grid into a single vertical column */
+  .links-grid {
+    grid-template-columns: 1fr; /* Forces a 1-column stack */
+    gap: 20px; /* Slightly tighter spacing on small screens */
+  }
+
+  /* Shrinks the image buttons slightly to fit phone screens beautifully */
+  .link-item img {
+    max-width: 180px; 
+  }
 }
