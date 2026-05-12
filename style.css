@@ -1,14 +1,55 @@
-/* Tomo Reynolds - Jazz Pianist Website
-   Typography: EB Garamond (body), Georgia fallback
-   Palette: dark background, warm off-white text, amber accent
-   All colours in custom properties for easy restyling.
-*/
-
-html {
-  font-size: 18px;
-  line-height: 1.6;
-  scroll-behavior: smooth;
+/* Remove default browser gaps */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
-body {
+/* Base container holding everything */
+.page-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Force the page height to match this specific image */
+.bg-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none; /* Stops users from dragging the background */
+}
+
+/* Overlay layer that matches the exact size of the background */
+.content-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centers your links horizontally */
+  align-items: center;     /* Centers your links vertically */
+}
+
+/* Layout container for your 3 image links 
+.links-container {
+  display: flex;
+  flex-direction: column;  /* Stack buttons vertically. Change to 'row' to go sideways 
+  gap: 20px;               /* Space between your button images 
+  align-items: center;
+}
+
+*/
+
+/* Styling for the clickable link images 
+.link-item img {
+  width: 250px;            /* Set exact width for your button images 
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease; /* Smooth hover animation 
+}
+
+/* Subtle effect when hovering over buttons 
+.link-item img:hover {
+  transform: scale(1.05);  /* Slightly grows the image button on hover */
 }
