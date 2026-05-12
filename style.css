@@ -1,28 +1,28 @@
 /* ==========================================
-   1. LAYOUT CONSTANTS & CANVAS SETUP
+   1. GLOBAL & CANVAS SETUP (Desktop First)
    ========================================== */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: #000000; /* Handles margins gracefully */
+  background-color: #000000;
 }
 
 .site-container {
   position: relative;
   width: 100%;
-  overflow-x: hidden; /* Cleans up any overflow outside the screen boundary */
+  overflow-x: hidden; /* Blocks horizontal scrolling completely */
 }
 
-/* The element scaling engine */
+/* DESKTOP ENGINE: Displays 100% width, no cropping, scrolls full height */
 .master-bg {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-  pointer-events: none; /* Disables dragging actions over the canvas */
+  pointer-events: none;
 }
 
-/* Matches overlay bounds precisely to the native scale of the canvas */
+/* Layer matching the exact layout dimensions of the desktop image */
 .interaction-overlay {
   position: absolute;
   top: 0;
@@ -31,13 +31,11 @@ html, body {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; /* Centers layout globally along the canvas axis */
+  align-items: center; /* Centers links vertically on desktop */
   box-sizing: border-box;
 }
 
-/* ==========================================
-   2. DESKTOP INTERACTION GRID (2x2)
-   ========================================== */
+/* DESKTOP INTERACTION GRID (2x2 Layout) */
 .links-layout {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -54,37 +52,33 @@ html, body {
 }
 
 /* ==========================================
-   3. SMARTPHONE OVERRIDES (Side-Crop Engine)
+   2. SMARTPHONE OVERRIDES (Mobile Phone Only)
    ========================================== */
 @media (max-width: 768px) {
   
-  /* Forces the canvas to preserve its height on phones by preventing it 
-     from shrinking too small, shifting excess width off-screen */
+  /* MOBILE ENGINE: Zooms image and forces it to center-crop from the dead middle */
   .master-bg {
     width: auto;
-    min-width: 220vw; /* Pushes the image bounds wider than the phone screen */
-    height: auto;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%); /* Centers the cropped viewpoint */
+    min-width: 220vw; /* Scales the image up so it fills phone height */
+    margin-left: 50%;
+    transform: translateX(-50%); /* Locks the exact center of the image to the phone screen */
   }
 
-  /* Matches layout width explicitly to the mobile phone viewport width */
+  /* Locks the clickable interactive zone strictly to the phone's visible screen width */
   .interaction-overlay {
-    position: absolute;
     width: 100vw;
     left: 0;
-    align-items: flex-start; /* Aligns target links cleanly below the header space */
-    padding-top: 100px;
+    align-items: flex-start; /* Shifts links toward the top for natural mobile reading */
+    padding-top: 80px;
   }
 
-  /* Collapses the link structures into a single column profile */
+  /* Collapses the link grid into a single vertical stack */
   .links-layout {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 25px;
   }
 
   .link-element img {
-    max-width: 180px; /* Scales down navigation target targets for touch targets */
+    max-width: 180px; /* Sized appropriately for mobile touch screens */
   }
 }
