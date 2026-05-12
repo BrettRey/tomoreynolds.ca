@@ -1,78 +1,90 @@
 /* ==========================================
-   1. GLOBAL & BACKGROUND SETTINGS (Desktop First)
+   1. LAYOUT CONSTANTS & CANVAS SETUP
    ========================================== */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh; /* Forces page to be at least full screen height */
-  overflow-x: hidden;
+  background-color: #000000; /* Handles margins gracefully */
 }
 
-body {
-  /* Sets your image as the canvas */
-  background-image: url('Background.jpg');
-  background-size: cover;          /* Crops edges to perfectly fill the screen */
-  background-position: center top; /* Centers the image dynamically */
-  background-repeat: no-repeat;
-  background-attachment: scroll;   /* Allows natural scrolling */
+.site-container {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden; /* Cleans up any overflow outside the screen boundary */
 }
 
-/* Container keeping your elements centered on screen */
-.content-layer {
+/* The element scaling engine */
+.master-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none; /* Disables dragging actions over the canvas */
+}
+
+/* Matches overlay bounds precisely to the native scale of the canvas */
+.interaction-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh; 
-  padding: 40px 20px; /* Prevents buttons from hitting screen edges */
+  align-items: center; /* Centers layout globally along the canvas axis */
   box-sizing: border-box;
 }
 
 /* ==========================================
-   2. DESKTOP LINK GRID (2x2 Layout)
+   2. DESKTOP INTERACTION GRID (2x2)
    ========================================== */
-.links-grid {
+.links-layout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates a 2-column grid */
-  gap: 30px; /* Space between your image buttons */
-  max-width: 600px; /* Keeps the grid tightly grouped */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 600px;
+  padding: 20px;
 }
 
-.link-item img {
-  width: 100%;       /* Makes buttons scale with the grid */
-  max-width: 250px;  /* Limits maximum size on large monitors */
+.link-element img {
+  width: 100%;
+  max-width: 240px;
   height: auto;
   display: block;
-  transition: transform 0.2s ease;
-}
-
-.link-item img:hover {
-  transform: scale(1.05);
 }
 
 /* ==========================================
-   3. MOBILE RESPONSIVE OVERRIDES (Phones)
+   3. SMARTPHONE OVERRIDES (Side-Crop Engine)
    ========================================== */
 @media (max-width: 768px) {
-  body {
-    /* Increases the scrollable height on mobile so you can scroll 
-       the full height of the cropped image */
-    min-height: 120vh; 
+  
+  /* Forces the canvas to preserve its height on phones by preventing it 
+     from shrinking too small, shifting excess width off-screen */
+  .master-bg {
+    width: auto;
+    min-width: 220vw; /* Pushes the image bounds wider than the phone screen */
+    height: auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the cropped viewpoint */
   }
 
-  .content-layer {
-    align-items: flex-start; /* Aligns content toward top so it scrolls naturally */
-    padding-top: 60px;
+  /* Matches layout width explicitly to the mobile phone viewport width */
+  .interaction-overlay {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    align-items: flex-start; /* Aligns target links cleanly below the header space */
+    padding-top: 100px;
   }
 
-  /* Changes the 2x2 grid into a single vertical column */
-  .links-grid {
-    grid-template-columns: 1fr; /* Forces a 1-column stack */
-    gap: 20px; /* Slightly tighter spacing on small screens */
+  /* Collapses the link structures into a single column profile */
+  .links-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  /* Shrinks the image buttons slightly to fit phone screens beautifully */
-  .link-item img {
-    max-width: 180px; 
+  .link-element img {
+    max-width: 180px; /* Scales down navigation target targets for touch targets */
   }
 }
