@@ -30,7 +30,10 @@ html {
 body {
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   color: var(--text);
-  background-color: var(--bg);
+  background-image: url('Background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   padding: 2rem 1rem;
   max-width: 800px;
   margin: 0 auto;
