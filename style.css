@@ -1,55 +1,25 @@
-/* Remove default browser gaps */
+/* 1. Reset browser defaults and kill horizontal scrolling */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* Blocks unwanted side-to-side scrolling completely */
+  background-color: #000000; /* Dark fallback while image loads */
 }
 
-/* Base container holding everything */
+/* 2. Container holding the image */
 .page-wrapper {
   position: relative;
   width: 100%;
+  max-width: 100%;
 }
 
-/* Force the page height to match this specific image */
+/* 3. The background image settings */
 .bg-image {
-  width: 100%;
-  height: auto;
-  display: block;
-  pointer-events: none; /* Stops users from dragging the background */
-}
-
-/* Overlay layer that matches the exact size of the background */
-.content-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center; /* Centers your links horizontally */
-  align-items: center;     /* Centers your links vertically */
-}
-
-/* Layout container for your 3 image links 
-.links-container {
-  display: flex;
-  flex-direction: column;  /* Stack buttons vertically. Change to 'row' to go sideways 
-  gap: 20px;               /* Space between your button images 
-  align-items: center;
-}
-
-*/
-
-/* Styling for the clickable link images 
-.link-item img {
-  width: 250px;            /* Set exact width for your button images 
-  height: auto;
-  display: block;
-  transition: transform 0.2s ease; /* Smooth hover animation 
-}
-
-/* Subtle effect when hovering over buttons 
-.link-item img:hover {
-  transform: scale(1.05);  /* Slightly grows the image button on hover */
+  width: 100%;        /* Locks image width strictly to browser edge */
+  max-width: 100%;    /* Double-ensures it never overflows the screen */
+  height: auto;       /* Keeps the picture's proportions perfect */
+  display: block;     /* Eliminates the weird default gap at the bottom */
+  pointer-events: none; /* Prevents users from accidentally dragging the image */
 }
