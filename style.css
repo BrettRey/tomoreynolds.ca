@@ -42,6 +42,7 @@ html, body {
   gap: 30px;
   max-width: 600px;
   padding: 20px;
+  justify-items: center;
 }
 
 .link-element img {
@@ -51,11 +52,40 @@ html, body {
   display: block;
 }
 
+/* TEXT BUTTONS: stand-ins for the button images (about-btn.jpg etc.),
+   which were never uploaded. Remove the "text-btn" class on a link once
+   it has an <img> inside it again. */
+.link-element.text-btn {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  box-sizing: border-box;
+  padding: 14px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(18, 18, 18, 0.8);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+  color: #f4f1ea;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: none;
+}
+
+.link-element.text-btn:hover,
+.link-element.text-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111111;
+  outline: none;
+}
+
 /* ==========================================
    2. SMARTPHONE OVERRIDES (Mobile Phone Only)
    ========================================== */
 @media (max-width: 768px) {
-  
+
   /* MOBILE ENGINE: Zooms image and forces it to center-crop from the dead middle */
   .master-bg {
     width: auto;
@@ -81,4 +111,101 @@ html, body {
   .link-element img {
     max-width: 180px; /* Sized appropriately for mobile touch screens */
   }
+
+  .link-element.text-btn {
+    max-width: 200px;
+    font-size: 1.1rem;
+  }
+}
+
+/* ==========================================
+   3. INNER PAGES (about, contact, lessons, 404)
+   ========================================== */
+body.page {
+  color: #f4f1ea;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-body {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 20px 72px;
+  box-sizing: border-box;
+}
+
+.page-body h1 {
+  font-weight: normal;
+  font-size: 2.1rem;
+  line-height: 1.15;
+  margin: 0.6em 0 0.8em;
+}
+
+.page-body h2 {
+  font-weight: normal;
+  font-size: 1.4rem;
+  margin: 2em 0 0.6em;
+}
+
+.page-body p {
+  margin: 0 0 1.1em;
+}
+
+.page-body a {
+  color: #a9dccd; /* mint, from the figure in the artwork */
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.page-body a:hover,
+.page-body a:focus-visible {
+  color: #ffffff;
+}
+
+.home-link {
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0.75;
+}
+
+.home-link:hover {
+  opacity: 1;
+}
+
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 1.4em 0;
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.page-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
+.contact-email {
+  font-size: 1.35rem;
+  word-break: break-all;
+}
+
+.page-body hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 2.4em 0;
 }
