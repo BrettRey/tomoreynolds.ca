@@ -39,11 +39,10 @@ The February single-page design is preserved on the `archive/single-page-2026-02
 
 Push to `main`. GitHub Pages deploys automatically (`gh api repos/BrettRey/tomoreynolds.ca/pages/builds/latest` shows the status).
 
-**HTTPS:** DNS (Cloudflare, DNS-only) points at GitHub Pages correctly, but GitHub never issued a certificate for the custom domain (`https_certificate` is null in the Pages API), so `https://tomoreynolds.ca` shows a certificate error and only `http://` works. Fix: remove and re-add the custom domain (Settings > Pages, or `gh api -X PUT repos/BrettRey/tomoreynolds.ca/pages` with `cname` null then `cname` set), wait for the certificate state to become `approved`, then enable **Enforce HTTPS**.
+**HTTPS:** DNS (Cloudflare, DNS-only) points at GitHub Pages. The certificate was issued on 2026-10-26 and Enforce HTTPS is on. If it ever lapses (`gh api repos/BrettRey/tomoreynolds.ca/pages --jq .https_certificate`), remove and re-add the custom domain (Settings > Pages, or `gh api -X PUT repos/BrettRey/tomoreynolds.ca/pages` with `cname` null then `cname` set), wait for the state to become `approved`, then re-enable **Enforce HTTPS**.
 
 ## TODO
 
-- [ ] Fix HTTPS (see above)
 - [ ] Tomo: upload the three button images, or keep the text buttons
 - [ ] Tomo: fill in `lessons.html`
 - [ ] Contact is email-only; a Formspree form was planned in February but never set up

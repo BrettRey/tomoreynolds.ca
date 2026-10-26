@@ -1,5 +1,5 @@
 # Decisions: tomoreynolds.ca
-<!-- SUMMARY: decision log for Tomo's website · status: live over http, https pending · updated: 2026-10-26 -->
+<!-- SUMMARY: decision log for Tomo's website · status: live over https · updated: 2026-10-26 -->
 
 2026-10-26 — Keep Tomo's May 2026 canvas design as the site; the February single-page design is archived on branch `archive/single-page-2026-02`.
 
@@ -11,4 +11,4 @@
 
 2026-10-26 — `Background.jpg` resized from 2480x3508 (1.8 MB) for the web; original retained in git history.
 
-2026-10-26 — HTTPS fix (remove and re-add the custom domain to trigger certificate issuance, then enforce HTTPS) is pending; steps in README.
+2026-10-26 — HTTPS: the custom domain was removed and re-added through the Pages API to trigger certificate issuance (the domain had been added in February with no certificate ever issued); the certificate was approved within minutes and Enforce HTTPS enabled.
